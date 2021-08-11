@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Condensed">
+    <style>
+      body {
+        font-family: 'Roboto Condensed';
+        font-size: 32px;
+      }
+    </style>
+	
+	<style>
+.center {
+  color: #448c18;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+</style>
+
+
+</head>
+
+<body>
+
+
+<div class="center">
+
+<h2>Description Replacer</h2>
+
+<textarea id="descriptionTemplate" rows = 35 cols = 50 placeholder = "Paste your google play template here...">
+</textarea>
+
+<textarea id="replaceText" rows = 35 cols = 30, placeholder = "Paste your ENG description here...">
+</textarea>
+
+<p>Click the button to replace the contents.</p>
+
+<button class="button button1" onclick="myFunction()">Replace</button>
+
+</div>
+
+<script>
+
+const regExp = new RegExp("Enter or paste your release notes for .* here", 'g');
+
+function myFunction() {
+	var input = document.getElementById("descriptionTemplate").value;
+    var replacerText = document.getElementById("replaceText").value;
+	
+	if (input == "") 
+	{
+		alert("your descriptionTemplate text is empty.");
+		return;
+	}
+	
+	if (replacerText == "") 
+	{
+		alert("your replacer text is empty.");
+		return;
+	}
+	
+    document.getElementById("descriptionTemplate").value = input.replace(regExp, replacerText);
+}
+
+function copyResult() 
+{
+
+}
+</script>
+
+</body>
+</html>
